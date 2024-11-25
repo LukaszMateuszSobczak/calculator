@@ -14,7 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="34sp"
+        android:gravity="end"
+        />
 
     <EditText
         android:id="@+id/edit_text_input"
@@ -62,7 +65,8 @@
         android:padding="10dp"
         android:src="@drawable/baseline_backspace_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_input" />
+        app:layout_constraintTop_toBottomOf="@id/edit_text_input"
+        android:clickable="true"/>
 
     <ImageView
         android:id="@+id/image_view_line"
@@ -190,7 +194,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="@color/button_color"
-        android:text="X"
+        android:text="x"
         android:textColor="@color/operator_color"
         android:textSize="32sp"
         app:cornerRadius="40dp"
