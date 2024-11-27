@@ -3,16 +3,11 @@ package com.lukaszsobczak.calculator;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.ViewGroupCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -24,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        TextView textViewOutput = findViewById(R.id.text_view_result);
-        EditText editTextInput = findViewById(R.id.edit_text_input);
+        TextView textViewOutput = findViewById(R.id.text_view_input);
+        TextView editTextInput = findViewById(R.id.text_view_result);
 //        ImageView imageViewBackspace = findViewById(R.id.image_view_backspace);
 
 //        MaterialButton buttonClear = findViewById(R.id.button_clear);
@@ -67,11 +62,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (view instanceof MaterialButton) {
-                if (view.getId() == R.id.button_clear) {
+                if (view.getId() == R.id.button_equal) {
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            editTextInput.setText("1000");
+                        }
+                    });
+                } else if (view.getId() == R.id.button_clear) {
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             textViewOutput.setText("");
+                            editTextInput.setText("");
                         }
                     });
                 } else {
